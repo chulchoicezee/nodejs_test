@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>socket.io</title>
+<style type="text/css">
+#input {
+  width: 200px;
+}
+#messages {
+  position: fixed;
+  top: 40px;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  border: 1px solid #EEEEEE;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+보내는 메시지: <input type="text" id="input">
+<div id="messages">
+</div>
+<script src="http://localhost:8001/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect('http://localhost:8001');
+
+var messages = document.querySelector('#messages');
+var input = document.querySelector('#input');
+
+input.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    socket.emit('from client', input.value);
+    input.value = '';
+  }
+});
+
+var lastMessage;
+
+socket.on('from server', function(data) {
+  var newMessage = document.createElement('div');
+  var newText = document.createTextNode(data.toString());
+  newMessage.appendChild(newText);
+  messages.insertBefore(newMessage, lastMessage);
+  lastMessage = newMessage;
+});
+
+</script>
+</body>
+</html>
