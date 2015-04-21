@@ -2,9 +2,9 @@ var net = require('net');
 
 process.stdin.resume();
 
-var client = net.connect({host: 'chulchoice.cafe24app.com', port: 80}, function() {
+//var client = net.connect({host: 'chulchoice.cafe24app.com', port: 80}, function() {
 //var client = net.connect(8001[, 'chulchoice.cafe24app.com'][, function() {
-//var client = net.connect({host: 'localhost', port: 5000}, function() {
+var client = net.connect({host: 'localhost', port: 8003}, function() {
   console.log('클라이언트가 서버에 연결되었습니다...');
   client.write('I am Chuck Norris!');
 });

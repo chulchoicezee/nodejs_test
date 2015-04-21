@@ -22,9 +22,9 @@
 보내는 메시지: <input type="text" id="input">
 <div id="messages">
 </div>
-<script src="http://localhost:8001/socket.io/socket.io.js"></script>
+<script src="http://192.168.204.1:8004/socket.io/socket.io.js"></script>
 <script>
-var socket = io.connect('http://localhost:8001');
+var socket = io.connect('http://192.168.204.1:8004');
 
 var messages = document.querySelector('#messages');
 var input = document.querySelector('#input');

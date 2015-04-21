@@ -46,4 +46,4 @@ server.on('close', function() {
   console.log('서버가 종료되었습니다');
 });
 
-server.listen(port);
+server.listen(8003);

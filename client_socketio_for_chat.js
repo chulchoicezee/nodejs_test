@@ -1,7 +1,7 @@
 var io = require('socket.io-client');
 process.stdin.resume();
 
-var socket = io.connect('http://localhost:8001');
+var socket = io.connect('http://localhost:8004');
 //var socket = io.connect('http://chulchoice.cafe24app.com:80');
 
 socket.on('connect', function () { console.log("socket connected"); });
